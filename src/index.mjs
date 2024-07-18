@@ -13,19 +13,25 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT ;
-const mongodburi = process.env.MONGODB_CONNECTION_STRING
+const PORT = process.env.PORT || 3000;
+const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 
+// Refined CORS configuration
 app.use(
   cors({
-    origin: '*', // Allow all origins
+    origin:[ 'https://multivendorecommerce-00.web.app', 'http://localhost:5173'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   })
 );
+
 mongoose
-  .connect(mongodburi)
-  .then(() => console.log("Connected to database"));
+  .connect(mongodburi, {
+    
+  })
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.error("Database connection error:", err));
+
 app.use(
   session({
     secret: "Cjay",
@@ -51,5 +57,5 @@ app.use(ordersRouter);
 app.use(dealRouter);
 
 app.listen(PORT, () => {
-  console.log(`Ruuning On Port ${PORT}`);
+  console.log(`Running on Port ${PORT}`);
 });
