@@ -86,6 +86,10 @@ userRouter.post(
 
 userRouter.get("/api/users/auth/status", (request, response) => {
   //console.log("This is from auth check status", request.session, request.user);
+  res.header("Access-Control-Allow-Origin", "https://multivendorecommerce-00.web.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   const { user } = request;
   if (!user || user.email.includes('@shop'))  {
     return response.status(401).send({ msg: "Not Logged In" });

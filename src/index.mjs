@@ -26,9 +26,7 @@ app.use(
 );
 
 mongoose
-  .connect(mongodburi, {
-    
-  })
+  .connect(mongodburi)
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error("Database connection error:", err));
 
