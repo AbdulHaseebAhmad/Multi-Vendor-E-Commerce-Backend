@@ -19,7 +19,7 @@ const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 // Refined CORS configuration
 app.use(
   cors({
-    origin:[ 'https://multivendorecommerce-00.web.app', 'http://localhost:5173'],
+    origin:[ 'https://multivendorecommerce-00.web.app', 'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app/'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   })
