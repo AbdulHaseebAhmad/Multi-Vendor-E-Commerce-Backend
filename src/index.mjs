@@ -48,12 +48,6 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(shopRouter);
-app.use(userRouter);
-app.use(productRouter);
-app.use(ordersRouter);
-app.use(dealRouter);
-
 app.get('/',(request,response)=>{
   response.send({msg:'App Running'})
 })
