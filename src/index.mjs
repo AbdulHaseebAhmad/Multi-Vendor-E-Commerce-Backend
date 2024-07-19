@@ -54,10 +54,11 @@ app.use(productRouter);
 app.use(ordersRouter);
 app.use(dealRouter);
 
-app.listen(PORT, () => {
+app.get('/',(request,response)=>{
+  response.send({msg:'App Running'})
+})
+app.listen(3000, () => {
   console.log(`Running on Port ${PORT}`);
 });
 
-app.get('/',(request,response)=>{
-  response.send("APP RUNNING")
-})
+
