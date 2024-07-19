@@ -57,3 +57,7 @@ app.use(dealRouter);
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);
 });
+
+app.get('/',(request,response)=>{
+  response.send("APP RUNNING")
+})
