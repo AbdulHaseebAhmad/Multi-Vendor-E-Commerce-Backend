@@ -55,7 +55,7 @@ app.use(ordersRouter);
 app.use(dealRouter);
 
 app.get('/',(request,response)=>{
-  response.send({msg:'App Running'})
+  response.send("Running")
 })
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);
