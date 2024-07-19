@@ -59,5 +59,5 @@ app.listen(PORT, () => {
 });
 
 app.get('/',(request,response)=>{
-  response.json("APP RUNNING")
+  response.send("APP RUNNING")
 })
