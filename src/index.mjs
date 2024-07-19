@@ -19,7 +19,7 @@ const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 // Refined CORS configuration
 app.use(
   cors({
-    origin:[ 'https://multivendorecommerce-00.web.app', 'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app'],
+    origin:[ 'https://multivendorecommerce-00.web.app','https://52.70.243.175/', 'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   })
@@ -55,9 +55,9 @@ app.use(ordersRouter);
 app.use(dealRouter);
 
 app.get('/',(request,response)=>{
-  response.send("Running")
+  response.json("Running")
 })
-app.listen(PORT, () => {
+app.listen(PORT,, '0.0.0.0', () => {
   console.log(`Running on Port ${PORT}`);
 });
 
