@@ -26,7 +26,7 @@ app.use(
 );
 
 mongoose
-  .connect(mongodburi)
+  .connect("mongodb+srv://abdul:127102Tr@multivendorecommerce.ysfgkez.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=MultiVendorECommerce")
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error("Database connection error:", err));
 
