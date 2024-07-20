@@ -13,7 +13,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 443;
 const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 
 // Refined CORS configuration
@@ -57,8 +57,8 @@ app.use(dealRouter);
 app.get('/',(request,response)=>{
   response.json("Running")
 })
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Running on Port ${PORT}`);
+app.listen(443, '0.0.0.0', () => {
+  console.log(`Running on Port ${443}`);
 });
 
 
