@@ -13,13 +13,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5001;
 const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 
 // Refined CORS configuration
 app.use(
   cors({
-    origin:[ 'https://multivendorecommerce-00.web.app','http://multivendorecommerce-00.web.app/', 'http://multivendorecommerce-00.web.app' ,'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app'],
+    origin:[ 'https://multivendorecommerce-00.web.app', 'https://multivendorecommerce-00.web.app/', 'http://multivendorecommerce-00.web.app','http://multivendorecommerce-00.web.app', 'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app'],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   })
@@ -54,10 +54,11 @@ app.use(productRouter);
 app.use(ordersRouter);
 app.use(dealRouter);
 
+app.get('/',(request,response)=>{
+  response.json("Running")
+})
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);
 });
 
-app.get('/',(request,response)=>{
-  response.send("APP RUNNING")
-})
+
