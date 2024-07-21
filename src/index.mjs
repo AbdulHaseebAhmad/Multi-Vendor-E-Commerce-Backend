@@ -19,14 +19,24 @@ const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 // Refined CORS configuration
 app.use(
   cors({
-    origin:[ 'https://multivendorecommerce-00.web.app', 'https://multivendorecommerce-00.web.app/', 'http://multivendorecommerce-00.web.app','http://multivendorecommerce-00.web.app', 'http://localhost:5173', 'https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app'],
+    origin: [
+      "https://multivendorecommerce-00.web.app",
+      "https://multivendorecommerce-00.web.app/",
+      "http://multivendorecommerce-00.web.app",
+      "http://multivendorecommerce-00.web.app",
+      "http://localhost:5173",
+      "http://localhost:5173/",
+      "https://multi-vendor-e-commrce-system-frontend-54qv.vercel.app",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   })
 );
 
 mongoose
-  .connect("mongodb+srv://abdul:127102Tr@multivendorecommerce.ysfgkez.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=MultiVendorECommerce")
+  .connect(
+    "mongodb+srv://abdul:127102Tr@multivendorecommerce.ysfgkez.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=MultiVendorECommerce"
+  )
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error("Database connection error:", err));
 
@@ -54,11 +64,9 @@ app.use(productRouter);
 app.use(ordersRouter);
 app.use(dealRouter);
 
-app.get('/',(request,response)=>{
-  response.json("Running")
-})
+app.get("/", (request, response) => {
+  response.json("Running");
+});
 app.listen(PORT, () => {
   console.log(`Running on Port ${PORT}`);
 });
-
-
