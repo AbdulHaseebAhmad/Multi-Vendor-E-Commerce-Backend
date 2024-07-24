@@ -13,7 +13,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = 5001;
 const mongodburi = process.env.MONGODB_CONNECTION_STRING;
 
 // Refined CORS configuration
